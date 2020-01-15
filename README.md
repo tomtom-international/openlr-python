@@ -1,8 +1,8 @@
 # OpenLR Python
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
+[![Travis (.org)](https://img.shields.io/travis/tomtom-international/openlr-python)](https://travis-ci.org/tomtom-international/openlr-python)
 <!-- [![pip downloads](https://img.shields.io/pypi/dm/apache-airflow)](https://pypi.org/project/apache-airflow)
-[![Travis (.org)](https://img.shields.io/travis/aksakalli/gtop)](https://travis-ci.org/aksakalli/gtop)
 [![Coverage Status](https://img.shields.io/codecov/c/github/apache/airflow/master.svg)](https://codecov.io/github/apache/airflow?branch=master)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/apache-airflow)](https://pypi.org/project/apache-airflow)
 [![PyPI](https://img.shields.io/pypi/v/apache-airflow)](https://pypi.org/project/apache-airflow) -->
