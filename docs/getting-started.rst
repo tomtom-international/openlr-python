@@ -1,12 +1,12 @@
 Getting Started
 ===============
 
-You need a Python version >= 2.7 and git.
+You need a Python version >= 2.7.
 Install the package via pip:
 
 .. code-block:: bash
 
-    pip install git+https://github.com/tomtom-international/openlr-python.git
+    pip install openlr
 
 
 The package comes with a simple CLI to convert base64 encoded binary data

@@ -8,5 +8,11 @@ python:
     - "3.8"
 install: pip install tox-travis codecov
 script: tox
-after_success:
-  - codecov
+after_success: codecov
+deploy:
+    provider: pypi
+    user: "__token__"
+    password: $PYPI_TOKEN
+    on:
+        tags: true
+        branch: master

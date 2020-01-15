@@ -3,9 +3,9 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
 [![Travis (.org)](https://img.shields.io/travis/tomtom-international/openlr-python)](https://travis-ci.org/tomtom-international/openlr-python)
 [![Coverage Status](https://img.shields.io/codecov/c/github/tomtom-international/openlr-python/master.svg)](https://codecov.io/github/tomtom-international/openlr-python?branch=master)
-<!-- [![pip downloads](https://img.shields.io/pypi/dm/apache-airflow)](https://pypi.org/project/apache-airflow)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/apache-airflow)](https://pypi.org/project/apache-airflow)
-[![PyPI](https://img.shields.io/pypi/v/apache-airflow)](https://pypi.org/project/apache-airflow) -->
+[![pip downloads](https://img.shields.io/pypi/dm/openlr)](https://pypi.org/project/openlr)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/openlr)](https://pypi.org/project/openlr)
+[![PyPI](https://img.shields.io/pypi/v/openlr)](https://pypi.org/project/openlr)
 
 Zero dependency Python implementation for
 [OpenLR™](https://www.openlr-association.com) XML and binary physical formats according to
@@ -14,10 +14,10 @@ and [the reference implementation](https://github.com/tomtom-international/openl
 
 ## Installation
 
-You need a Python version >= 2.7 and git.
+You need a Python version >= 2.7.
 
 ```
-pip install git+https://github.com/tomtom-international/openlr-python.git
+pip install openlr
 python -m openlr CwGkNSK5WhtzAv9+/5kbAw==
 ```
 
