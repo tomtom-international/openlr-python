@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from typing import NamedTuple, List
-from enum import Enum
+from enum import IntEnum
 
 
-class FRC(Enum):
+class FRC(IntEnum):
     """The functional road class is a road classification based on
     the importance of a road."""
 
@@ -29,7 +29,7 @@ class FRC(Enum):
     FRC7 = 7  #: Other class road, lowest importance
 
 
-class FOW(Enum):
+class FOW(IntEnum):
     """The form of way describes the physical road type."""
 
     UNDEFINED = 0  #:The physical road type is unknown
@@ -63,7 +63,7 @@ class FOW(Enum):
     one of the other categories."""
 
 
-class SideOfRoad(Enum):
+class SideOfRoad(IntEnum):
     """The side of the road is valid only for point locations and indicates
     on which side of the referenced road the point location is located."""
 
@@ -75,7 +75,7 @@ class SideOfRoad(Enum):
     BOTH = 3  #: Point is on both sides of the road
 
 
-class Orientation(Enum):
+class Orientation(IntEnum):
     """The orientation is only valid for point locations and indicates
     for which direction the point information is relevant."""
 
