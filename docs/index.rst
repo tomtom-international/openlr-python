@@ -10,12 +10,12 @@ and `the reference implementation <https://github.com/tomtom-international/openl
 (It does not include map-matching feature.)
 
 .. toctree::
-    :maxdepth: 3
-    :caption: Contents:
+  :maxdepth: 3
+  :caption: Contents:
 
-    getting-started
-    reference
-    development
+  getting-started
+  reference
+  development
 
 Other Related Projects
 ----------------------

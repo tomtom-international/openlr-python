@@ -11,7 +11,7 @@ with open("README.md") as f:
     readme = f.read()
 
 about = {}
-with open("openlr/_version.py") as f:
+with open("openlr/version.py") as f:
     exec(f.read(), about)
 
 setup(

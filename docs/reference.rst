@@ -18,33 +18,33 @@ Location Properties
 .. autofunction:: openlr.Coordinates
 
 .. autoclass:: openlr.LineAttributes
-    :exclude-members: frc, fow, bear
+  :exclude-members: frc, fow, bear
 .. autoclass:: openlr.PathAttributes
-    :exclude-members: lfrcnp, dnp
+  :exclude-members: lfrcnp, dnp
 .. autoclass:: openlr.LocationReferencePoint
-    :exclude-members: lon, lat, frc, fow, bear, lfrcnp, dnp
+  :exclude-members: lon, lat, frc, fow, bear, lfrcnp, dnp
 
 Reference Locations
 ~~~~~~~~~~~~~~~~~~~
 
 .. autoclass:: openlr.LineLocation
-    :exclude-members: points, poffs, noffs
+  :exclude-members: points, poffs, noffs
 .. autoclass:: openlr.GeoCoordinateLocation
-    :exclude-members: point
+  :exclude-members: point
 .. autoclass:: openlr.PointAlongLineLocation
-    :exclude-members: points, poffs, orientation, sideOfRoad
+  :exclude-members: points, poffs, orientation, sideOfRoad
 .. autoclass:: openlr.PoiWithAccessPointLocation
-    :exclude-members: points, poffs, lon, lat, orientation, sideOfRoad
+  :exclude-members: points, poffs, lon, lat, orientation, sideOfRoad
 .. autoclass:: openlr.CircleLocation
-    :exclude-members: point, radius
+  :exclude-members: point, radius
 .. autoclass:: openlr.RectangleLocation
-    :exclude-members: lowerLeft, upperRight
+  :exclude-members: lowerLeft, upperRight
 .. autoclass:: openlr.GridLocation
-    :exclude-members: lowerLeft, upperRight, n_cols, n_rows
+  :exclude-members: lowerLeft, upperRight, n_cols, n_rows
 .. autoclass:: openlr.PolygonLocation
-    :exclude-members: corners
+  :exclude-members: corners
 .. autoclass:: openlr.ClosedLineLocation
-    :exclude-members: points, lastLine
+  :exclude-members: points, lastLine
 
 XML Format
 ----------
@@ -70,4 +70,10 @@ Binary Internal APIs
 --------------------
 
 .. automodule:: openlr.openlr_bytes_io
-    :member-order: bysource
+  :member-order: bysource
+
+Helper Functions
+----------------
+
+.. autofunction:: openlr.get_dict
+.. autofunction:: openlr.get_lonlat_list

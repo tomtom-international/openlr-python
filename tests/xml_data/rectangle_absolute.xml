@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OpenLR xmlns="http://www.openlr.org/openlr">
-    <LocationID></LocationID>
-    <XMLLocationReference>
-        <AreaLocationReference>
-            <RectangleLocationReference>
-                <Rectangle>
-                    <LowerLeft>
-                        <Longitude>35.82153439504709</Longitude>
-                        <Latitude>26.043359041089804</Latitude>
-                    </LowerLeft>
-                    <UpperRight>
-                        <Longitude>42.141484021939554</Longitude>
-                        <Latitude>44.793995618606594</Latitude>
-                    </UpperRight>
-                </Rectangle>
-            </RectangleLocationReference>
-        </AreaLocationReference>
-    </XMLLocationReference>
+  <LocationID></LocationID>
+  <XMLLocationReference>
+    <AreaLocationReference>
+      <RectangleLocationReference>
+        <Rectangle>
+          <LowerLeft>
+            <Longitude>35.82153439504709</Longitude>
+            <Latitude>26.043359041089804</Latitude>
+          </LowerLeft>
+          <UpperRight>
+            <Longitude>42.141484021939554</Longitude>
+            <Latitude>44.793995618606594</Latitude>
+          </UpperRight>
+        </Rectangle>
+      </RectangleLocationReference>
+    </AreaLocationReference>
+  </XMLLocationReference>
 </OpenLR>
