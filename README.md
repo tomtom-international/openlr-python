@@ -24,4 +24,4 @@ python -m openlr CwGkNSK5WhtzAv9+/5kbAw==
 ## License
 
 Released under [the Apache License 2.0](LICENSE).
-Copyright (C) 2016-2020 TomTom NV.
+Copyright (c) 2016-2020 TomTom NV.

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OpenLR xmlns="http://www.openlr.org/openlr">
-    <LocationID></LocationID>
-    <XMLLocationReference>
-        <PointLocationReference>
-            <GeoCoordinate>
-                <Coordinates>
-                    <Longitude>52.4952185151458</Longitude>
-                    <Latitude>13.461674451763812</Latitude>
-                </Coordinates>
-            </GeoCoordinate>
-        </PointLocationReference>
-    </XMLLocationReference>
+  <LocationID></LocationID>
+  <XMLLocationReference>
+    <PointLocationReference>
+      <GeoCoordinate>
+        <Coordinates>
+          <Longitude>52.4952185151458</Longitude>
+          <Latitude>13.461674451763812</Latitude>
+        </Coordinates>
+      </GeoCoordinate>
+    </PointLocationReference>
+  </XMLLocationReference>
 </OpenLR>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OpenLR xmlns="http://www.openlr.org/openlr">
-    <LocationID></LocationID>
-    <XMLLocationReference>
-        <AreaLocationReference>
-            <CircleLocationReference>
-                <GeoCoordinate>
-                    <Coordinates>
-                        <Longitude>-3.3115947246393604</Longitude>
-                        <Latitude>55.94529032680538</Latitude>
-                    </Coordinates>
-                </GeoCoordinate>
-                <Radius>2000</Radius>
-            </CircleLocationReference>
-        </AreaLocationReference>
-    </XMLLocationReference>
+  <LocationID></LocationID>
+  <XMLLocationReference>
+    <AreaLocationReference>
+      <CircleLocationReference>
+        <GeoCoordinate>
+          <Coordinates>
+            <Longitude>-3.3115947246393604</Longitude>
+            <Latitude>55.94529032680538</Latitude>
+          </Coordinates>
+        </GeoCoordinate>
+        <Radius>2000</Radius>
+      </CircleLocationReference>
+    </AreaLocationReference>
+  </XMLLocationReference>
 </OpenLR>
