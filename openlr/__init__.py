@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """OpenLR physical format encoder/decoder"""
-from ._version import (
+from openlr._version import (
     __title__,
     __description__,
     __url__,
@@ -48,20 +48,4 @@ from openlr.xml_format import (
     xml_encode_to_document,
     xml_encode_to_string,
 )
-
-
-def get_lonlat_list(location):
-    """Helper to return a list of lonlat tuples of coordinates in a location"""
-    lonlat_list = []
-    if hasattr(location, "lon") and hasattr(location, "lat"):
-        lonlat_list.append((location.lon, location.lat))
-    if hasattr(location, "point"):
-        lonlat_list.append((location.point.lon, location.point.lat))
-    if hasattr(location, "points"):
-        lonlat_list.extend([(p.lon, p.lat) for p in location.points])
-    if hasattr(location, "corners"):
-        lonlat_list.extend([(c.lon, c.lat) for c in location.corners])
-    if hasattr(location, "lowerLeft") and hasattr(location, "upperRight"):
-        lonlat_list.append((location.lowerLeft.lon, location.lowerLeft.lat))
-        lonlat_list.append((location.upperRight.lon, location.upperRight.lat))
-    return lonlat_list
+from openlr.utils import get_dict, get_lonlat_list

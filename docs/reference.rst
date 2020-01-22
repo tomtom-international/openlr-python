@@ -71,3 +71,9 @@ Binary Internal APIs
 
 .. automodule:: openlr.openlr_bytes_io
   :member-order: bysource
+
+Helper Functions
+----------------
+
+.. autofunction:: openlr.get_dict
+.. autofunction:: openlr.get_lonlat_list
