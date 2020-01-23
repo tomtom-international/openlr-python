@@ -24,3 +24,9 @@ class TestXMLFormat(OpenlrBaseTestCase):
         for name, _, location in LOCATIONS:
             lonlat_list = openlr.get_lonlat_list(location)
             self.assertNotEqual(len(lonlat_list), 0, msg="no latlon for " + name)
+
+
+def test_get_dict(self):
+    for name, _, location in LOCATIONS:
+        location_dict = openlr.get_dict(location)
+        self.assertIsNotNone(location_dict)
