@@ -15,8 +15,8 @@
 # limitations under the License.
 __title__ = "openlr"
 __description__ = "OpenLR Python Implementation"
-__url__ = "https://openlr-python.readthedocs.io"
-__version__ = "1.0.0rc5"
+__url__ = "https://github.com/tomtom-international/openlr-python"
+__version__ = "1.0.0"
 __author__ = "Can Güney Aksakalli"
 __author_email__ = "cangueney.aksakalli@tomtom.com"
 __license__ = "Apache 2.0"
