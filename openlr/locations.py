@@ -96,9 +96,11 @@ WGS84 coordinates."""
 LineAttributes = NamedTuple(
     "LineAttributes", [("frc", FRC), ("fow", FOW), ("bear", int)]
 )
-"""Line attributes consist of functional road class, form of way, and bearing."""
+"""Line attributes consist of functional road class, form of way, and bearing.
+
+`bear` multiplied by 11.25 is the bearing angle in degrees."""
 PathAttributes = NamedTuple("PathAttributes", [("lfrcnp", FRC), ("dnp", int)])
-"""Path attributes consist of lowest FRC to next point, and distance to next point."""
+"""Path attributes consist of lowest FRC to next point, and distance in meters to next point."""
 LocationReferencePoint = NamedTuple(
     "LocationReferencePoint",
     [
@@ -115,7 +117,9 @@ LocationReferencePoint = NamedTuple(
     ],
 )
 """A location reference point consists of coordinate, line attribute and
-path attribute data."""
+path attribute data.
+
+Refer to `Coordinates`, `LineAttributes`, and `PathAttributes` for more information."""
 LineLocation = NamedTuple(
     "LineLocation",
     [("points", List[LocationReferencePoint]), ("poffs", int), ("noffs", int)],
@@ -156,7 +160,9 @@ the positive offset. The point of interest is identified by the coordinate pair.
 Additionally information about the side of the road where the point is located and
 the orientation with respect to the direction of the line can be added."""
 CircleLocation = NamedTuple("CircleLocation", [("point", Coordinates), ("radius", int)])
-"""A CircleLocationReference represents a circle area location."""
+"""A CircleLocationReference represents a circle area location.
+
+The radius is given in meters."""
 RectangleLocation = NamedTuple(
     "RectangleLocation", [("lowerLeft", Coordinates), ("upperRight", Coordinates)]
 )
