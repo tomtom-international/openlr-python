@@ -96,9 +96,11 @@ WGS84 coordinates."""
 LineAttributes = NamedTuple(
     "LineAttributes", [("frc", FRC), ("fow", FOW), ("bear", int)]
 )
-"""Line attributes consist of functional road class, form of way, and bearing."""
+"""Line attributes consist of functional road class, form of way, and bearing.
+
+`bear` multiplied with 11.25 is the bearing angle in degrees."""
 PathAttributes = NamedTuple("PathAttributes", [("lfrcnp", FRC), ("dnp", int)])
-"""Path attributes consist of lowest FRC to next point, and distance to next point."""
+"""Path attributes consist of lowest FRC to next point, and distance in meters to next point."""
 LocationReferencePoint = NamedTuple(
     "LocationReferencePoint",
     [
@@ -115,7 +117,9 @@ LocationReferencePoint = NamedTuple(
     ],
 )
 """A location reference point consists of coordinate, line attribute and
-path attribute data."""
+path attribute data.
+
+Refer to `Coordinates`, `LineAttributes`, and `PathAttributes` for more information."""
 LineLocation = NamedTuple(
     "LineLocation",
     [("points", List[LocationReferencePoint]), ("poffs", int), ("noffs", int)],
