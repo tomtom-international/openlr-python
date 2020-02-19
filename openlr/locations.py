@@ -98,7 +98,7 @@ LineAttributes = NamedTuple(
 )
 """Line attributes consist of functional road class, form of way, and bearing.
 
-`bear` multiplied with 11.25 is the bearing angle in degrees."""
+`bear` multiplied by 11.25 is the bearing angle in degrees."""
 PathAttributes = NamedTuple("PathAttributes", [("lfrcnp", FRC), ("dnp", int)])
 """Path attributes consist of lowest FRC to next point, and distance in meters to next point."""
 LocationReferencePoint = NamedTuple(
