@@ -160,7 +160,9 @@ the positive offset. The point of interest is identified by the coordinate pair.
 Additionally information about the side of the road where the point is located and
 the orientation with respect to the direction of the line can be added."""
 CircleLocation = NamedTuple("CircleLocation", [("point", Coordinates), ("radius", int)])
-"""A CircleLocationReference represents a circle area location."""
+"""A CircleLocationReference represents a circle area location.
+
+The radius is given in meters."""
 RectangleLocation = NamedTuple(
     "RectangleLocation", [("lowerLeft", Coordinates), ("upperRight", Coordinates)]
 )
