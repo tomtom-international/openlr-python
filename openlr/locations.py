@@ -168,7 +168,8 @@ CircleLocationReference = NamedTuple(
 
 The radius is given in meters."""
 RectangleLocationReference = NamedTuple(
-    "RectangleLocationReference", [("lowerLeft", Coordinates), ("upperRight", Coordinates)]
+    "RectangleLocationReference",
+    [("lowerLeft", Coordinates), ("upperRight", Coordinates)],
 )
 """A RectangleLocationReference represents a rectangular area location."""
 GridLocationReference = NamedTuple(
@@ -182,7 +183,9 @@ GridLocationReference = NamedTuple(
 )
 """A GridLocationReference represents a rectangular area location
 with a grid of n_cols columns and n_rows rows."""
-PolygonLocationReference = NamedTuple("PolygonLocationReference", [("corners", List[Coordinates])])
+PolygonLocationReference = NamedTuple(
+    "PolygonLocationReference", [("corners", List[Coordinates])]
+)
 """A PolygonLocationReference represents a polygonal area location."""
 ClosedLineLocationReference = NamedTuple(
     "ClosedLineLocation",
