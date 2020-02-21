@@ -129,7 +129,7 @@ reference point(s), a last location reference point and offset data."""
 GeoCoordinateLocationReference = NamedTuple(
     "GeoCoordinateLocationReference", [("point", Coordinates)]
 )
-"""GeoCoordinate is a point location which consists of exactly one oordinate pair."""
+"""GeoCoordinate is a point location which consists of exactly one Coordinate pair."""
 PointAlongLineLocationReference = NamedTuple(
     "PointAlongLineLocationReference",
     [
@@ -188,5 +188,5 @@ ClosedLineLocationReference = NamedTuple(
     "ClosedLineLocation",
     [("points", List[LocationReferencePoint]), ("lastLine", LineAttributes)],
 )
-"""A LineLocationReference is defined by an ordered sequence of
+"""A ClosedLineLocationReference is defined by an ordered sequence of
 location reference points and a terminating last location reference point."""
