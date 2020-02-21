@@ -120,16 +120,18 @@ LocationReferencePoint = NamedTuple(
 path attribute data.
 
 Refer to `Coordinates`, `LineAttributes`, and `PathAttributes` for more information."""
-LineLocation = NamedTuple(
-    "LineLocation",
+LineLocationReference = NamedTuple(
+    "LineLocationReference",
     [("points", List[LocationReferencePoint]), ("poffs", int), ("noffs", int)],
 )
 """A line location reference describes a path within a map and consists of location
 reference point(s), a last location reference point and offset data."""
-GeoCoordinateLocation = NamedTuple("GeoCoordinateLocation", [("point", Coordinates)])
+GeoCoordinateLocationReference = NamedTuple(
+    "GeoCoordinateLocationReference", [("point", Coordinates)]
+)
 """GeoCoordinate is a point location which consists of exactly one oordinate pair."""
-PointAlongLineLocation = NamedTuple(
-    "PointAlongLineLocation",
+PointAlongLineLocationReference = NamedTuple(
+    "PointAlongLineLocationReference",
     [
         ("points", List[LocationReferencePoint]),
         ("poffs", int),
@@ -142,8 +144,8 @@ The line will be referenced by two location reference points and the concrete po
 on that line is referenced using the positive offset. Additionally information about
 the side of the road where the point is located and the orientation with respect
 to the direction of the line can be added."""
-PoiWithAccessPointLocation = NamedTuple(
-    "PoiWithAccessPointLocation",
+PoiWithAccessPointLocationReference = NamedTuple(
+    "PoiWithAccessPointLocationReference",
     [
         ("points", List[LocationReferencePoint]),
         ("poffs", int),
@@ -159,16 +161,18 @@ points and the concrete position of the access point on that line is referenced 
 the positive offset. The point of interest is identified by the coordinate pair.
 Additionally information about the side of the road where the point is located and
 the orientation with respect to the direction of the line can be added."""
-CircleLocation = NamedTuple("CircleLocation", [("point", Coordinates), ("radius", int)])
+CircleLocationReference = NamedTuple(
+    "CircleLocationReference", [("point", Coordinates), ("radius", int)]
+)
 """A CircleLocationReference represents a circle area location.
 
 The radius is given in meters."""
-RectangleLocation = NamedTuple(
-    "RectangleLocation", [("lowerLeft", Coordinates), ("upperRight", Coordinates)]
+RectangleLocationReference = NamedTuple(
+    "RectangleLocationReference", [("lowerLeft", Coordinates), ("upperRight", Coordinates)]
 )
 """A RectangleLocationReference represents a rectangular area location."""
-GridLocation = NamedTuple(
-    "GridLocation",
+GridLocationReference = NamedTuple(
+    "GridLocationReference",
     [
         ("lowerLeft", Coordinates),
         ("upperRight", Coordinates),
@@ -178,9 +182,9 @@ GridLocation = NamedTuple(
 )
 """A GridLocationReference represents a rectangular area location
 with a grid of n_cols columns and n_rows rows."""
-PolygonLocation = NamedTuple("PolygonLocation", [("corners", List[Coordinates])])
+PolygonLocationReference = NamedTuple("PolygonLocationReference", [("corners", List[Coordinates])])
 """A PolygonLocationReference represents a polygonal area location."""
-ClosedLineLocation = NamedTuple(
+ClosedLineLocationReference = NamedTuple(
     "ClosedLineLocation",
     [("points", List[LocationReferencePoint]), ("lastLine", LineAttributes)],
 )
