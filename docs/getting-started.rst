@@ -97,13 +97,13 @@ Defining a location object and converting it to XML and binary physical formats
   print(openlr.binary_encode(location))  # IyVUdwmSoA==
   print(openlr.xml_encode_to_string(location))  # <?xml version="1.0" ?><OpenLR ...
 
-Defining a LineLocation
+Defining a LineLocationReference
 
 .. code-block:: python
 
-  from openlr import LineLocation, LocationReferencePoint, FRC, FOW
+  from openlr import LineLocationReference, LocationReferencePoint, FRC, FOW
 
-  location = LineLocation(
+  location = LineLocationReference(
       [
           LocationReferencePoint(
               6.1268198, 49.6085178, FRC.FRC3, FOW.MULTIPLE_CARRIAGEWAY, 141, FRC.FRC3, 557,

@@ -22,15 +22,15 @@ from openlr.locations import (
     LineAttributes,
     PathAttributes,
     LocationReferencePoint,
-    LineLocation,
-    GeoCoordinateLocation,
-    PointAlongLineLocation,
-    PoiWithAccessPointLocation,
-    CircleLocation,
-    RectangleLocation,
-    GridLocation,
-    PolygonLocation,
-    ClosedLineLocation,
+    LineLocationReference,
+    GeoCoordinateLocationReference,
+    PointAlongLineLocationReference,
+    PoiWithAccessPointLocationReference,
+    CircleLocationReference,
+    RectangleLocationReference,
+    GridLocationReference,
+    PolygonLocationReference,
+    ClosedLineLocationReference,
 )
 from openlr.utils import j_round
 
@@ -124,53 +124,53 @@ def xml_encode_to_document(location):
     root.appendChild(el_loc)
     doc.appendChild(root)
 
-    if isinstance(location, LineLocation):
+    if isinstance(location, LineLocationReference):
         el_loc_type = doc.createElement("LineLocationReference")
         el_loc.appendChild(el_loc_type)
         _write_line(doc, el_loc_type, location)
-    elif isinstance(location, GeoCoordinateLocation):
+    elif isinstance(location, GeoCoordinateLocationReference):
         el_loc_type = doc.createElement("PointLocationReference")
         el_loc.appendChild(el_loc_type)
         el_geo = doc.createElement("GeoCoordinate")
         el_loc_type.appendChild(el_geo)
         _write_geo_coordinate(doc, el_geo, location)
-    elif isinstance(location, PointAlongLineLocation):
+    elif isinstance(location, PointAlongLineLocationReference):
         el_loc_type = doc.createElement("PointLocationReference")
         el_loc.appendChild(el_loc_type)
         el_point_along_line = doc.createElement("PointAlongLine")
         el_loc_type.appendChild(el_point_along_line)
         _write_point_along_line(doc, el_point_along_line, location)
-    elif isinstance(location, PoiWithAccessPointLocation):
+    elif isinstance(location, PoiWithAccessPointLocationReference):
         el_loc_type = doc.createElement("PointLocationReference")
         el_loc.appendChild(el_loc_type)
         el_poi = doc.createElement("PoiWithAccessPoint")
         el_loc_type.appendChild(el_poi)
         _write_poi(doc, el_poi, location)
-    elif isinstance(location, CircleLocation):
+    elif isinstance(location, CircleLocationReference):
         el_loc_type = doc.createElement("AreaLocationReference")
         el_loc.appendChild(el_loc_type)
         el_circle = doc.createElement("CircleLocationReference")
         el_loc_type.appendChild(el_circle)
         _write_circle(doc, el_circle, location)
-    elif isinstance(location, RectangleLocation):
+    elif isinstance(location, RectangleLocationReference):
         el_loc_type = doc.createElement("AreaLocationReference")
         el_loc.appendChild(el_loc_type)
         el_rectangle = doc.createElement("RectangleLocationReference")
         el_loc_type.appendChild(el_rectangle)
         _write_rectangle(doc, el_rectangle, location)
-    elif isinstance(location, GridLocation):
+    elif isinstance(location, GridLocationReference):
         el_loc_type = doc.createElement("AreaLocationReference")
         el_loc.appendChild(el_loc_type)
         el_grid = doc.createElement("GridLocationReference")
         el_loc_type.appendChild(el_grid)
         _write_grid(doc, el_grid, location)
-    elif isinstance(location, PolygonLocation):
+    elif isinstance(location, PolygonLocationReference):
         el_loc_type = doc.createElement("AreaLocationReference")
         el_loc.appendChild(el_loc_type)
         el_polygon = doc.createElement("PolygonLocationReference")
         el_loc_type.appendChild(el_polygon)
         _write_polygon(doc, el_polygon, location)
-    elif isinstance(location, ClosedLineLocation):
+    elif isinstance(location, ClosedLineLocationReference):
         el_loc_type = doc.createElement("AreaLocationReference")
         el_loc.appendChild(el_loc_type)
         el_closed_line = doc.createElement("ClosedLineLocationReference")
@@ -229,12 +229,12 @@ def _parse_line(el):
     points = [_parse_point(e) for e in point_elements]
     poffs = float(_get_el_value(el, "PosOff", 0)) / points[0].dnp
     noffs = float(_get_el_value(el, "NegOff", 0)) / points[-2].dnp
-    return LineLocation(points, poffs, noffs)
+    return LineLocationReference(points, poffs, noffs)
 
 
 def _parse_geo_coordinate(el):
     point = _parse_coordinate(_get_first_el(el, "Coordinates"))
-    return GeoCoordinateLocation(point)
+    return GeoCoordinateLocationReference(point)
 
 
 def _parse_point_along_line(el):
@@ -244,7 +244,7 @@ def _parse_point_along_line(el):
     poffs = float(_get_el_value(el, "PosOff", 0)) / points[0].dnp
     orientation = Orientation[_get_el_value(el, "Orientation")]
     sideOfRoad = SideOfRoad[_get_el_value(el, "SideOfRoad")]
-    return PointAlongLineLocation(points, poffs, orientation, sideOfRoad)
+    return PointAlongLineLocationReference(points, poffs, orientation, sideOfRoad)
 
 
 def _parse_poi(el):
@@ -256,7 +256,7 @@ def _parse_poi(el):
             break
     else:
         raise ValueError("no Coordinates element found for PoiWithAccessPoint")
-    return PoiWithAccessPointLocation(
+    return PoiWithAccessPointLocationReference(
         pal.points, pal.poffs, lon, lat, pal.orientation, pal.sideOfRoad
     )
 
@@ -264,26 +264,26 @@ def _parse_poi(el):
 def _parse_circle(el):
     point = _parse_coordinate(_get_first_el(el, "Coordinates"))
     radius = int(_get_el_value(el, "Radius"))
-    return CircleLocation(point, radius)
+    return CircleLocationReference(point, radius)
 
 
 def _parse_rectangle(el):
     lowerLeft = _parse_coordinate(_get_first_el(el, "LowerLeft"))
     upperRight = _parse_coordinate(_get_first_el(el, "UpperRight"))
-    return RectangleLocation(lowerLeft, upperRight)
+    return RectangleLocationReference(lowerLeft, upperRight)
 
 
 def _parse_grid(el):
     rectangle = _parse_rectangle(el)
     cols = int(_get_el_value(el, "NumColumns"))
     rows = int(_get_el_value(el, "NumRows"))
-    return GridLocation(rectangle.lowerLeft, rectangle.upperRight, cols, rows)
+    return GridLocationReference(rectangle.lowerLeft, rectangle.upperRight, cols, rows)
 
 
 def _parse_polygon(el):
     corner_elements = el.getElementsByTagNameNS("*", "Coordinates")
     corners = [_parse_coordinate(e) for e in corner_elements]
-    return PolygonLocation(corners)
+    return PolygonLocationReference(corners)
 
 
 def _parse_closed_line(el):
@@ -293,7 +293,7 @@ def _parse_closed_line(el):
     frc = FRC[_get_el_value(el_last_line, "FRC")]
     fow = FOW[_get_el_value(el_last_line, "FOW")]
     bear = int(_get_el_value(el_last_line, "BEAR"))
-    return ClosedLineLocation(points, LineAttributes(frc, fow, bear))
+    return ClosedLineLocationReference(points, LineAttributes(frc, fow, bear))
 
 
 def _create_data_el(doc, tag, data):

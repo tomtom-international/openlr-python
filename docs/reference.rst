@@ -27,23 +27,23 @@ Location Properties
 Reference Locations
 ~~~~~~~~~~~~~~~~~~~
 
-.. autoclass:: openlr.LineLocation
+.. autoclass:: openlr.LineLocationReference
   :exclude-members: points, poffs, noffs
-.. autoclass:: openlr.GeoCoordinateLocation
+.. autoclass:: openlr.GeoCoordinateLocationReference
   :exclude-members: point
-.. autoclass:: openlr.PointAlongLineLocation
+.. autoclass:: openlr.PointAlongLineLocationReference
   :exclude-members: points, poffs, orientation, sideOfRoad
-.. autoclass:: openlr.PoiWithAccessPointLocation
+.. autoclass:: openlr.PoiWithAccessPointLocationReference
   :exclude-members: points, poffs, lon, lat, orientation, sideOfRoad
-.. autoclass:: openlr.CircleLocation
+.. autoclass:: openlr.CircleLocationReference
   :exclude-members: point, radius
-.. autoclass:: openlr.RectangleLocation
+.. autoclass:: openlr.RectangleLocationReference
   :exclude-members: lowerLeft, upperRight
-.. autoclass:: openlr.GridLocation
+.. autoclass:: openlr.GridLocationReference
   :exclude-members: lowerLeft, upperRight, n_cols, n_rows
-.. autoclass:: openlr.PolygonLocation
+.. autoclass:: openlr.PolygonLocationReference
   :exclude-members: corners
-.. autoclass:: openlr.ClosedLineLocation
+.. autoclass:: openlr.ClosedLineLocationReference
   :exclude-members: points, lastLine
 
 XML Format

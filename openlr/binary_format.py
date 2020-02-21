@@ -25,15 +25,15 @@ from openlr.locations import (
     LineAttributes,
     PathAttributes,
     LocationReferencePoint,
-    LineLocation,
-    GeoCoordinateLocation,
-    PointAlongLineLocation,
-    PoiWithAccessPointLocation,
-    CircleLocation,
-    RectangleLocation,
-    GridLocation,
-    PolygonLocation,
-    ClosedLineLocation,
+    LineLocationReference,
+    GeoCoordinateLocationReference,
+    PointAlongLineLocationReference,
+    PoiWithAccessPointLocationReference,
+    CircleLocationReference,
+    RectangleLocationReference,
+    GridLocationReference,
+    PolygonLocationReference,
+    ClosedLineLocationReference,
 )
 
 
@@ -121,31 +121,31 @@ def binary_encode(location, is_base64=True):
     """
     data_bytes = OpenLRBytesIO()
 
-    if isinstance(location, LineLocation):
+    if isinstance(location, LineLocationReference):
         data_bytes.write_status(3, LocationTypes.LineLocation.value)
         _write_line(location, data_bytes)
-    elif isinstance(location, GeoCoordinateLocation):
+    elif isinstance(location, GeoCoordinateLocationReference):
         data_bytes.write_status(3, LocationTypes.GeoCoordinateLocation.value)
         _write_geo_coordinate(location, data_bytes)
-    elif isinstance(location, PointAlongLineLocation):
+    elif isinstance(location, PointAlongLineLocationReference):
         data_bytes.write_status(3, LocationTypes.PointAlongLineLocation.value)
         _write_point_along_line(location, data_bytes)
-    elif isinstance(location, PoiWithAccessPointLocation):
+    elif isinstance(location, PoiWithAccessPointLocationReference):
         data_bytes.write_status(3, LocationTypes.PoiWithAccessPointLocation.value)
         _write_poi(location, data_bytes)
-    elif isinstance(location, CircleLocation):
+    elif isinstance(location, CircleLocationReference):
         data_bytes.write_status(3, LocationTypes.CircleLocation.value)
         _write_circle(location, data_bytes)
-    elif isinstance(location, RectangleLocation):
+    elif isinstance(location, RectangleLocationReference):
         data_bytes.write_status(3, LocationTypes.RectangleLocation.value)
         _write_rectangle(location, data_bytes)
-    elif isinstance(location, GridLocation):
+    elif isinstance(location, GridLocationReference):
         data_bytes.write_status(3, LocationTypes.GridLocation.value)
         _write_grid(location, data_bytes)
-    elif isinstance(location, PolygonLocation):
+    elif isinstance(location, PolygonLocationReference):
         data_bytes.write_status(3, LocationTypes.PolygonLocation.value)
         _write_polygon(location, data_bytes)
-    elif isinstance(location, ClosedLineLocation):
+    elif isinstance(location, ClosedLineLocationReference):
         data_bytes.write_status(3, LocationTypes.ClosedLineLocation.value)
         _write_closed_line(location, data_bytes)
     else:
@@ -176,13 +176,13 @@ def _parse_line(data_buffer, size):
 
     poffs = data_buffer.read_offset() if lfrcnp & 0b10 else 0
     noffs = data_buffer.read_offset() if lfrcnp & 0b01 else 0
-    return LineLocation(points, poffs, noffs)
+    return LineLocationReference(points, poffs, noffs)
 
 
 def _parse_geo_coordinate(data_buffer):
     lon, lat = data_buffer.read_coords()
     point = Coordinates(lon, lat)
-    return GeoCoordinateLocation(point)
+    return GeoCoordinateLocationReference(point)
 
 
 def _parse_point_along_line(data_buffer):
@@ -204,7 +204,7 @@ def _parse_point_along_line(data_buffer):
     poffs = 0
     if lfrcnp & 0b10:
         poffs = data_buffer.read_offset()
-    return PointAlongLineLocation(
+    return PointAlongLineLocationReference(
         points, poffs, Orientation(orientation), SideOfRoad(side_of_road)
     )
 
@@ -230,7 +230,7 @@ def _parse_poi(data_buffer):
         poffs = data_buffer.read_offset()
 
     lon, lat = data_buffer.read_coords_relative(points[0].lon, points[0].lat)
-    return PoiWithAccessPointLocation(
+    return PoiWithAccessPointLocationReference(
         points, poffs, lon, lat, Orientation(orientation), SideOfRoad(side_of_road)
     )
 
@@ -239,7 +239,7 @@ def _parse_circle(data_buffer):
     lon, lat = data_buffer.read_coords()
     point = Coordinates(lon, lat)
     radius = data_buffer.read_radius()
-    return CircleLocation(point, radius)
+    return CircleLocationReference(point, radius)
 
 
 def _parse_rectangle(data_buffer, size):
@@ -250,7 +250,7 @@ def _parse_rectangle(data_buffer, size):
     else:  # relative
         lon, lat = data_buffer.read_coords_relative(lon, lat)
     upperRight = Coordinates(lon, lat)
-    return RectangleLocation(lowerLeft, upperRight)
+    return RectangleLocationReference(lowerLeft, upperRight)
 
 
 def _parse_grid(data_buffer, size):
@@ -262,7 +262,7 @@ def _parse_grid(data_buffer, size):
         lon, lat = data_buffer.read_coords_relative(lon, lat)
     upperRight = Coordinates(lon, lat)
     cols, rows = data_buffer.read_cols_rows()
-    return GridLocation(lowerLeft, upperRight, cols, rows)
+    return GridLocationReference(lowerLeft, upperRight, cols, rows)
 
 
 def _parse_polygon(data_buffer, size):
@@ -275,7 +275,7 @@ def _parse_polygon(data_buffer, size):
         lon, lat = data_buffer.read_coords_relative(lon, lat)
         corners.append(Coordinates(lon, lat))
 
-    return PolygonLocation(corners)
+    return PolygonLocationReference(corners)
 
 
 def _parse_closed_line(data_buffer, size):
@@ -299,7 +299,7 @@ def _parse_closed_line(data_buffer, size):
 
     fow, frc, bear, lfrcnp, _ = data_buffer.read_point_attributes()
 
-    return ClosedLineLocation(points, LineAttributes(FRC(frc), FOW(fow), bear))
+    return ClosedLineLocationReference(points, LineAttributes(FRC(frc), FOW(fow), bear))
 
 
 def _write_line(location, data_buffer):
