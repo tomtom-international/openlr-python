@@ -12,7 +12,7 @@ with open("README.md", "rb") as f:
 
 about = {}
 with open("openlr/_version.py", "rb") as f:
-    exec(f.read().decode("utf-8"), about)
+    exec(f.read(), about)
 
 setup(
     name=about["__title__"],
