@@ -7,11 +7,11 @@ install_requires = []
 if sys.version_info[0] == 2:
     install_requires = ["enum34", "typing"]
 
-with open("README.md") as f:
-    readme = f.read()
+with open("README.md", "rb") as f:
+    readme = f.read().decode("utf-8")
 
 about = {}
-with open("openlr/_version.py") as f:
+with open("openlr/_version.py", "rb") as f:
     exec(f.read(), about)
 
 setup(
