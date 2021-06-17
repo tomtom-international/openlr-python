@@ -1,7 +1,6 @@
 # OpenLR Python
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
-[![Travis (.org)](https://img.shields.io/travis/tomtom-international/openlr-python)](https://travis-ci.org/tomtom-international/openlr-python)
 [![Coverage Status](https://img.shields.io/codecov/c/github/tomtom-international/openlr-python/master.svg)](https://codecov.io/github/tomtom-international/openlr-python?branch=master)
 [![pip downloads](https://img.shields.io/pypi/dm/openlr)](https://pypi.org/project/openlr)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/openlr)](https://pypi.org/project/openlr)
