@@ -3,9 +3,6 @@
 import sys
 from setuptools import setup, find_packages
 
-install_requires = []
-if sys.version_info[0] == 2:
-    install_requires = ["enum34", "typing"]
 
 with open("README.md", "rb") as f:
     readme = f.read().decode("utf-8")
@@ -24,7 +21,7 @@ setup(
     author_email=about["__author_email__"],
     url=about["__url__"],
     license=about["__license__"],
-    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
+    python_requires=">=3.6",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
@@ -41,6 +38,6 @@ setup(
         "Operating System :: OS Independent",
     ],
     packages=["openlr"],
-    install_requires=install_requires,
+    install_requires=[],
     test_suite="tests",
 )

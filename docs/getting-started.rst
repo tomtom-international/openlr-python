@@ -1,7 +1,6 @@
 Getting Started
 ===============
 
-You need a Python version >= 2.7.
 Install the package via pip:
 
 .. code-block:: bash
