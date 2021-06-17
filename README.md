@@ -13,8 +13,6 @@ and [the reference implementation](https://github.com/tomtom-international/openl
 
 ## Installation
 
-You need a Python version >= 2.7.
-
 ```
 pip install openlr
 python -m openlr CwGkNSK5WhtzAv9+/5kbAw==
