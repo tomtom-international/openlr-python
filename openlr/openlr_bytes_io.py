@@ -53,7 +53,7 @@ def deg_to_int(deg, resolution=24):
 
 
 def int_to_deg(val, resolution=24):
-    r"""converts degree coordinate into integer
+    r"""converts integer into degree coordinate
 
     .. math::
         \DeclareMathOperator{\sgn}{sgn}
