@@ -90,7 +90,7 @@ Defining a location object and converting it to XML and binary physical formats
 
   import openlr
 
-  location = openlr.GeoCoordinateLocation(
+  location = openlr.GeoCoordinateLocationReference(
       openlr.Coordinates(52.495218, 13.461668)
   )
   print(openlr.binary_encode(location))  # IyVUdwmSoA==
