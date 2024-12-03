@@ -8,7 +8,7 @@
 
 Zero dependency Python implementation for
 [OpenLR™](https://www.openlr-association.com) XML and binary physical formats according to
-[the White Paper](https://www.openlr-association.com/fileadmin/user_upload/openlr-whitepaper_v1.5.pdf)
+[the White Paper](https://download.tomtom.com/open/banners/openlr-whitepaper_v1.5.pdf)
 and [the reference implementation](https://github.com/tomtom-international/openlr).
 
 ## Installation
