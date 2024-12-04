@@ -38,5 +38,4 @@ setup(
     ],
     packages=["openlr"],
     install_requires=[],
-    test_suite="tests",
 )
