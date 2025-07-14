@@ -23,7 +23,6 @@ import math
 
 from openlr.utils import j_round, sgn
 
-PY2 = sys.version_info[0] == 2
 DECA_MICRO_DEG_FACTOR = 100000.0
 DISTANCE_PER_INTERVAL = 58.6
 BEAR_SECTOR = 11.25
@@ -116,14 +115,6 @@ def int_to_bytes(val, size=3, signed=True):
 
 class OpenLRBytesIO(BytesIO):
     """In-memory binary stream for reading/writing OpenLR data"""
-
-    def read(self, size=-1):
-        """Python 2 compatibility for str -> bytes"""
-        bytes = super(OpenLRBytesIO, self).read(size)
-        if PY2:
-            return bytearray(bytes)
-        else:
-            return bytes
 
     def read_status(self):
         """Reads status from the first byte: version & location type
